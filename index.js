@@ -43,6 +43,9 @@ let muteroleid = message.guild.roles.find("name", "muted").id;
       userMessage.removeRole(muteroleid);
     }, 10000)
   } 
+  if(message.content.startsWith("-name")){
+    mybot.user.setUsername("AutoMod");
+  }
   if(message.content.startsWith("-test")) {
   message.channel.send(sentMessage[message.author.id].sent);
   }
