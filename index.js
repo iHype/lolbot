@@ -7,6 +7,12 @@ mybot.on("ready", async ready =>{
 mybot.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return message.channel.send("No DM's");
+  if(message.content.replace(/[^<]/g, "").length >= 10 && message.content.replace(/[^>]/g, "").length >= 10){
+    let lol = message.guild.members.find('id',message.author.id);
+    lol.addRole(message.guild.roles.find('name','muted').id);
+    message.channel.send('No mass mention').then(t => {t.delete(2500)})
+    message.delete(10);
+  }
   if(!sentMessage[message.author.id]) {
     sentMessage[message.author.id] = {
     sent: 0
