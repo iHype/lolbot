@@ -11,7 +11,7 @@ mybot.on("message", async message => {
     async function lmao() {
     let lol = message.guild.members.find('id',message.author.id);
     lol.addRole(message.guild.roles.find('name','muted').id);
-    message.channel.send('No mass mention').then(t => {await t.delete(2500)})
+    message.channel.send('No mass mention').then(async t => {await t.delete(2500)})
     await message.delete(10);
   }
   lmao()
