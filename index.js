@@ -17,7 +17,7 @@ mybot.on("message", async message => {
   }
   lmao()
   }
-  if(message.content.replace(/[^:]/g, "").length >= 20) {
+  if(message.content.replace(/:/gi, "").length >= 20) {
     message.delete(500);
     let lol = message.guild.members.find("id", message.author.id);
     let xd = message.guild.roles.find("name", "muted").id
