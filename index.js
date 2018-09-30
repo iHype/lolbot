@@ -23,7 +23,7 @@ mybot.on("message", async message => {
     let xd = message.guild.roles.find("name", "muted").id
     lol.addRole(xd);
     setTimeout( function() {lol.removeRole(xd)},10000)
-    message.channel.send("No emoji spam");
+    message.channel.send("No emoji spam").then(async a => {await a.delete(2500)})
     }
   if(!sentMessage[message.author.id]) {
     sentMessage[message.author.id] = {
