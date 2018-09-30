@@ -7,15 +7,24 @@ mybot.on("ready", async ready =>{
 mybot.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return message.channel.send("No DM's");
-  if(message.content.replace(/[^<]/g, "").length >= 5 && message.content.replace(/[^>]/g, "").length >= 5){
+  if(message.content.replace(/[^<]/g, "").length >= 7 && message.content.replace(/[^>]/g, "").length >= 5){
     async function lmao() {
     let lol = message.guild.members.find('id',message.author.id);
     lol.addRole(message.guild.roles.find('name','muted').id);
-    message.channel.send('No mass mention').then(async t => {await t.delete(2500)})
-    await message.delete(10);
+    message.channel.send(message.author + ', no mass mention/emoji spam!').then(async t => {await t.delete(2500)})
+    setTimeout( function() {lol.removeRole(message.guild.roles.find("name", "muted").id)}, 10000)
+    await message.delete(250);
   }
   lmao()
   }
+  if(message.content.replace(/[^:]/g, "").length >= 20) {
+    message.delete(500);
+    let lol = message.guild.members.find("id", message.author.id);
+    let xd = message.guild.roles.find("name", "muted").id
+    lol.addRole(xd);
+    setTimeout( function() {lol.removeRole(xd)},10000)
+    message.channel.send("No emoji spam");
+    }
   if(!sentMessage[message.author.id]) {
     sentMessage[message.author.id] = {
     sent: 0
