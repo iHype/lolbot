@@ -16,7 +16,7 @@ mybot.on("message", async message => {
     await message.delete(250);
   }
   lmao()
-  }
+  }/*
   if(message.content.replace(/:/g, "").length >= 20) {
     message.delete(500);
     let lol = message.guild.members.find("id", message.author.id);
@@ -24,7 +24,7 @@ mybot.on("message", async message => {
     lol.addRole(xd);
     setTimeout( function() {lol.removeRole(xd)},10000)
     message.channel.send("No emoji spam").then(async a => {await a.delete(2500)})
-    }
+    }*/
   if(!sentMessage[message.author.id]) {
     sentMessage[message.author.id] = {
     sent: 0
