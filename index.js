@@ -117,9 +117,9 @@ let muteroleid = message.guild.roles.find("name", "muted").id;
         sentMessage[message.author.id].mutedForSpam = 0;
       }
       } 
-   if(message.content.startsWith("-name")){
+/*   if(message.content.startsWith("-name")){
     mybot.user.setUsername(args.join(" ").toString());
-  } 
+  } */
   if(message.content.startsWith("-test")) {
   message.channel.send(sentMessage[message.author.id].sent);
   }
