@@ -118,7 +118,7 @@ let muteroleid = message.guild.roles.find("name", "muted").id;
       }
       } 
    if(message.content.startsWith("-name")){
-    mybot.user.setUsername(args[0]);
+    mybot.user.setUsername(args.join(" ").toString());
   } 
   if(message.content.startsWith("-test")) {
   message.channel.send(sentMessage[message.author.id].sent);
