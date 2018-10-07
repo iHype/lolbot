@@ -129,7 +129,7 @@ let muteroleid = message.guild.roles.find("name", "muted").id;
     message.channel.send(fetch + "_ _")
   } */
   if(cmd === "-resetpoints" || cmd === "-resetpoint"){
-    if(message.author.id === "430447525800181762" || message.author.id === "299495028756054016" || lol.hasPermission("KICK_MEMBERS")) {
+    if(message.author.id === "430447525800181762" || message.author.id === "299495028756054016" || lol.hasPermission("KICK_MEMBERS") || message.author.id === "465120150870556684") {
     let xd = message.mentions.members.first() 
     xd.removeRole(muteroleid)
     sentMessage[xd.id].mutedForSpam = 0
@@ -137,15 +137,15 @@ let muteroleid = message.guild.roles.find("name", "muted").id;
     message.author.send("Successfuly reset points of " + xd).then(async c => {await c.delete(ms("10s"))})
   }}
   if(cmd === "-messagedelete") { 
-    if(message.author.id === "299495028756054016" || message.author.id === "430447525800181762" || lol.hasPermission("KICK_MEMBERS")){
+    if(message.author.id === "299495028756054016" || message.author.id === "430447525800181762" || lol.hasPermission("KICK_MEMBERS") || message.author.id === "465120150870556684"){
     message.channel.fetchMessage(args[0]).then(async d => {await d.delete()})
   }}
   if(cmd === "-purge") {
-      if(message.author.id === "299495028756054016" || message.author.id === "430447525800181762" || lol.hasPermission("KICK_MEMBERS")){
+      if(message.author.id === "299495028756054016" || message.author.id === "430447525800181762" || lol.hasPermission("KICK_MEMBERS") || message.author.id === "465120150870556684"){
         message.channel.bulkDelete(args[0])
   }}
     if(cmd === "-addpoint" && args[0]) {
-      if(message.author.id === "299495028756054016" || message.author.id === "430447525800181762" || lol.hasPermission("KICK_MEMBERS")){
+      if(message.author.id === "299495028756054016" || message.author.id === "430447525800181762" || lol.hasPermission("KICK_MEMBERS") || message.author.id === "465120150870556684"){
       async function lmao() {
         await message.delete(100);
         sentMessage[firstmention.id].mutedForSpam = sentMessage[firstmention.id].mutedForSpam + 1
