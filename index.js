@@ -44,9 +44,9 @@ mybot.on("message", async message => {
   sentMessage[message.author.id].sent = sentMessage[message.author.id].sent + 1;
   setTimeout(async function() {  sentMessage[message.author.id].sent = sentMessage[message.author.id].sent - 1;}, 2000)
 let userMessage = message.guild.members.find("id", message.author.id)
-    if(message.content === "ping") {
+    /*if(message.content === "ping") {
         message.channel.send("pong");
-    }
+    }*/
 let muteroleid = message.guild.roles.find("name", "muted").id;
   if(sentMessage[message.author.id].sent === 4) {
     if(lol.hasPermission("BAN_MEMBERS") || lol.hasPermission("KICK_MEMBERS") || message.channel.id === "496680193591869441" || message.channel.id === "334870578748063745") return;
