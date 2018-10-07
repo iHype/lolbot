@@ -4,28 +4,28 @@ var mybot = new Discord.Client();
 let sentMessage = {}
 mybot.on("ready", async ready =>{
   console.log("ready");
+  console.log(mybot.user.username + " is online on " + mybot.guilds.array().length + " guilds:\n" + mybot.guilds.array().join("\n").toString());
 })
 mybot.on("message", async message => {    
+ // if(message.guild.id === "282275654760660993") return;
   if(message.author.bot) return;
   if(message.channel.type === "dm") return message.channel.send("No DM's");
   let messageArray = message.content.split(" ");
   let cmd = messageArray['0'];
   let lol = message.guild.members.find("id", message.author.id)
+  let firstmention = message.mentions.members.first();
   let args = messageArray.slice(1);
   let translateArg = args.slice(1) || messageArray.slice(2);
   let tragetLanguage = args['0'] || messageArray['1'];
-
-
-  // if(message.content.replace(/[^<]/g, "").length >= 7 && message.content.replace(/[^>]/g, "").length >= 5){
-  //   async function lmao() {
-  //   let lol = message.guild.members.find('id',message.author.id);
-  //   lol.addRole(message.guild.roles.find('name','muted').id);
-  //   message.channel.send(message.author + ', no mass mention/emoji spam!').then(async t => {await t.delete(2500)})
-  //   setTimeout( function() {lol.removeRole(message.guild.roles.find("name", "muted").id)}, 10000)
-  //   await message.delete(250);
-  // }
-  // lmao()
-  // }
+  /*if(message.mentions.members.size >= 7 || message.mentions.roles.array().length >= 7 || message.mentions.users.array().length >= 7){
+    // if(lol.hasPermission("KICK_MEMBERS")) return;
+    console.log("Hmmm");
+    let lol = message.guild.members.find('id',message.author.id);
+    lol.addRole(message.guild.roles.find('name','muted').id);
+    message.channel.send(message.author + ', no mass mention!').then(async t => {await t.delete(5000)})
+    setTimeout( function() {lol.removeRole(message.guild.roles.find("name", "muted").id)}, 10000)
+    message.delete(250);
+    }*/
   /*
   if(message.content.replace(/:/g, "").length >= 20) {
     message.delete(500);
@@ -136,6 +136,40 @@ let muteroleid = message.guild.roles.find("name", "muted").id;
     await message.delete(250)
     message.author.send("Successfuly reset points of " + xd).then(async c => {await c.delete(ms("10s"))})
   }}
+  if(cmd === "-messagedelete") { 
+    if(message.author.id === "299495028756054016" || message.author.id === "430447525800181762" || lol.hasPermission("KICK_MEMBERS")){
+    message.channel.fetchMessage(args[0]).then(async d => {await d.delete()})
+  }}
+  if(cmd === "-purge") {
+      if(message.author.id === "299495028756054016" || message.author.id === "430447525800181762" || lol.hasPermission("KICK_MEMBERS")){
+        message.channel.bulkDelete(args[0])
+  }}
+    if(cmd === "-addpoint" && args[0]) {
+      if(message.author.id === "299495028756054016" || message.author.id === "430447525800181762" || lol.hasPermission("KICK_MEMBERS")){
+      async function lmao() {
+        await message.delete(100);
+        sentMessage[firstmention.id].mutedForSpam = sentMessage[firstmention.id].mutedForSpam + 1
+        message.author.send("You have successfully added 1 point to " + message.channel.guild.members.find("id", firstmention.id).displayName + " mute points. This person has a total of " + sentMessage[firstmention.id].mutedForSpam + " mute points.")
+        if(sentMessage[firstmention.id].mutedForSpam === 1) {
+          firstmention.addRole(muteroleid);
+          setTimeout(async function() {
+          firstmention.removeRole(muteroleid);
+        }, 10000)
+          setTimeout( async function() {sentMessage[firstmention.id].mutedForSpam = 0}, ms("1h"))
+        }
+           if(sentMessage[firstmention.id].mutedForSpam === 2) {
+                firstmention.addRole(muteroleid);
+                  setTimeout( async function() {firstmention.removeRole(muteroleid)}, ms("30m"))
+                  setTimeout( async function() {sentMessage[firstmention.id].mutedForSpam = 0}, ms("6h"))
+           }
+            if(sentMessage[firstmention.id].mutedForSpam === 3) {
+                firstmention.addRole(muteroleid);
+                sentMessage[firstmention.id].mutedForSpam = 0;
+              message.author.send("Note: the person that you just added a point to got muted `indefinitely` AND his points reset, this means addpoint doesn't make sense here.")
+            }
+        }
+     lmao(); }
+      
+  }
 });
-
-mybot.login(process.env.lolbottoken);
+mybot.login(process.env.lolbottoken); //Z+6
