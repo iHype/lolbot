@@ -124,17 +124,17 @@ let muteroleid = message.guild.roles.find("name", "muted").id;
   if(message.channel.id === "524302149014781952"){
 //if(message.member.hasPermission("KICK_MEMBERS")) return
 
-    if(a[message.author.id].suggested === 1) {
-      message.delete(500);
-      return message.author.send("Please only send a suggestion every 24 hours")
-    }
+ 
  if(!a[message.author.id]){
  a[message.author.id] = {
  suggested: 1
    }
    setTimeout(async function(){a[message.author.id].suggested = 0}, ms('24h'));
  }
-   
+   if(a[message.author.id].suggested === 1) {
+      message.delete(500);
+      return message.author.send("Please only send a suggestion every 24 hours")
+    }
  }
   
   if(message.content.startsWith("-test")) {
