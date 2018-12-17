@@ -122,7 +122,7 @@ let muteroleid = message.guild.roles.find("name", "muted").id;
     mybot.user.setUsername(args.join(" ").toString());
   } */
   if(message.channel.id === "524302149014781952"){
-//if(message.member.hasPermission("KICK_MEMBERS")) return
+if(message.member.hasPermission("KICK_MEMBERS")) return
 
  
  if(!a[message.author.id]){
