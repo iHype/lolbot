@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const ms = require("ms");
+let a = {}
 var mybot = new Discord.Client();
 let sentMessage = {}
 mybot.on("ready", async ready =>{
@@ -120,6 +121,22 @@ let muteroleid = message.guild.roles.find("name", "muted").id;
 /*   if(message.content.startsWith("-name")){
     mybot.user.setUsername(args.join(" ").toString());
   } */
+  if(message.channel.id === "524302149014781952"){
+//if(message.member.hasPermission("KICK_MEMBERS")) return
+
+    if(a[message.author.id].suggested === 1) {
+      message.delete(500);
+      return message.author.send("Please only send a suggestion every 24 hours")
+    }
+ if(!a[message.author.id]){
+ a[message.author.id] = {
+ suggested: 1
+   }
+   setTimeout(async function(){a[message.author.id].suggested = 0}, ms('24h'));
+ }
+   
+ }
+  
   if(message.content.startsWith("-test")) {
   message.channel.send(sentMessage[message.author.id].sent);
   }
