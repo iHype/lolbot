@@ -130,6 +130,7 @@ let muteroleid = message.guild.roles.find("name", "muted").id;
  suggested: 1
    }
    setTimeout(async function(){a[message.author.id].suggested = 0}, ms('24h'));
+   return
  }
    if(a[message.author.id].suggested === 1) {
       message.delete(500);
