@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const ms = require("ms");
 let a = {}
+let b = {}
 var mybot = new Discord.Client();
 let sentMessage = {}
 mybot.on("ready", async ready =>{
@@ -133,6 +134,23 @@ if(message.member.hasPermission("KICK_MEMBERS")) return
    return
  }
    if(a[message.author.id].suggested === 1) {
+      message.delete(500);
+      return message.author.send("Please only send a suggestion every 24 hours")
+    }
+ }
+  
+    if(message.channel.id === "524621634598862869"){
+if(message.member.hasPermission("KICK_MEMBERS")) return
+
+ 
+ if(!b[message.author.id]){
+ b[message.author.id] = {
+ suggested: 1
+   }
+   setTimeout(async function(){b[message.author.id].suggested = 0}, ms('24h'));
+   return
+ }
+   if(b[message.author.id].suggested === 1) {
       message.delete(500);
       return message.author.send("Please only send a suggestion every 24 hours")
     }
