@@ -51,7 +51,7 @@ let userMessage = message.guild.members.find("id", message.author.id)
     }*/
 let muteroleid = message.guild.roles.find("name", "muted").id;
   if(sentMessage[message.author.id].sent === 4) {
-    if(lol.hasPermission("BAN_MEMBERS") || lol.hasPermission("KICK_MEMBERS") || message.channel.id === "496680193591869441" || message.channel.id === "334870578748063745") return;
+    if(lol.hasPermission("BAN_MEMBERS") || lol.hasPermission("KICK_MEMBERS") || message.channel.id === "496680193591869441" || message.channel.id === "334870578748063745" || message.author.id === "525029843583238144") return;
     sentMessage[message.author.id].mutedForSpam = sentMessage[message.author.id].mutedForSpam + 1;
     await message.channel.bulkDelete(4)
     let cyber = message.guild.members.find("id", "299495028756054016")
