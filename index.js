@@ -144,9 +144,9 @@ mybot.on("message", async message => {
     }
 
     if (message.channel.id === "524621634598862869") {
-       /* if (message.member.hasPermission("KICK_MEMBERS")) {
+        if (message.member.hasPermission("KICK_MEMBERS")) {
             return
-        }*/
+        }
 
 
         if (!b[message.author.id]) {
@@ -156,13 +156,13 @@ mybot.on("message", async message => {
             setTimeout(async function() {
                 b[message.author.id].suggested = 0
             }, ms('24h'));
-            return
+            return 
         }
-        /*  if(b[message.author.id].suggested === 1) {
+          if(b[message.author.id].suggested === 1) {
              message.delete(500);
-             return message.author.send("Please only send a suggestion every 24 hours")
+             return //message.author.send("Please only send a suggestion every 24 hours")
            }
-        }*/
+        }
 
         /* if(message.content.startsWith("-test")) {
          message.channel.send(sentMessage[message.author.id].sent);
