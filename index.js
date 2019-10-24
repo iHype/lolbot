@@ -214,6 +214,6 @@ mybot.on("message", async message => {
               lmao();} */
             }
 
-    }
+    
 });
 mybot.login(process.env.lolbottoken); //Z+6
