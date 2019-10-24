@@ -37,12 +37,12 @@ mybot.on("message", async message => {
     setTimeout( function() {lol.removeRole(xd)},10000)
     message.channel.send("No emoji spam").then(async a => {await a.delete(2500)})
     }*/
-  if(!sentMessage[message.author.id]) {
+  /*if(!sentMessage[message.author.id]) {
     sentMessage[message.author.id] = {
     sent: 0,
     mutedForSpam: 0
     }
-  }
+  }*/
   sentMessage[message.author.id].sent = sentMessage[message.author.id].sent + 1;
   setTimeout(async function() {  sentMessage[message.author.id].sent = sentMessage[message.author.id].sent - 1;}, 2000)
 let userMessage = message.guild.members.find("id", message.author.id)
@@ -50,7 +50,7 @@ let userMessage = message.guild.members.find("id", message.author.id)
         message.channel.send("pong");
     }*/
 let muteroleid = message.guild.roles.find("name", "muted").id;
-  if(sentMessage[message.author.id].sent === 4) {
+ /* if(sentMessage[message.author.id].sent === 4) {
     if(lol.hasPermission("BAN_MEMBERS") || lol.hasPermission("KICK_MEMBERS") || message.channel.id === "496680193591869441" || message.channel.id === "334870578748063745" || message.author.id === "525029843583238144") return;
     sentMessage[message.author.id].mutedForSpam = sentMessage[message.author.id].mutedForSpam + 1;
     await message.channel.bulkDelete(4)
@@ -118,7 +118,7 @@ let muteroleid = message.guild.roles.find("name", "muted").id;
         message.channel.send(message.author + " has been muted for possible raiding...").then(async b => {await b.delete(5000)})
         sentMessage[message.author.id].mutedForSpam = 0;
       }
-      } 
+      } */
 /*   if(message.content.startsWith("-name")){
     mybot.user.setUsername(args.join(" ").toString());
   } */
@@ -150,21 +150,21 @@ if(message.member.hasPermission("KICK_MEMBERS")) return
    setTimeout(async function(){b[message.author.id].suggested = 0}, ms('24h'));
    return
  }
-   if(b[message.author.id].suggested === 1) {
+ /*  if(b[message.author.id].suggested === 1) {
       message.delete(500);
       return message.author.send("Please only send a suggestion every 24 hours")
     }
- }
+ }*/
   
-  if(message.content.startsWith("-test")) {
+ /* if(message.content.startsWith("-test")) {
   message.channel.send(sentMessage[message.author.id].sent);
-  }
+  }*/
   /*if(cmd === "-fetch") {
     if(!args) return;
     const fetch = message.channel.fetchMessages(args.join(" ").toString())
     message.channel.send(fetch + "_ _")
   } */
-  if(cmd === "-resetpoints" || cmd === "-resetpoint"){
+/*  if(cmd === "-resetpoints" || cmd === "-resetpoint"){
     if(message.author.id === "430447525800181762" || message.author.id === "299495028756054016" || lol.hasPermission("KICK_MEMBERS") || message.author.id === "453970692266786816") {
     let xd = message.mentions.members.first() 
     xd.removeRole(muteroleid)
@@ -179,8 +179,8 @@ if(message.member.hasPermission("KICK_MEMBERS")) return
   if(cmd === "-purge") {
       if(message.author.id === "299495028756054016" || message.author.id === "430447525800181762" || lol.hasPermission("KICK_MEMBERS") || message.author.id === "453970692266786816"){
         message.channel.bulkDelete(args[0])
-  }}
-    if(cmd === "-addpoint" && args[0]) {
+  }}*/
+  /*  if(cmd === "-addpoint" && args[0]) {
       if(message.author.id === "299495028756054016" || message.author.id === "430447525800181762" || lol.hasPermission("KICK_MEMBERS") || message.author.id === "453970692266786816"){
       async function lmao() {
         await message.delete(100);
@@ -204,7 +204,7 @@ if(message.member.hasPermission("KICK_MEMBERS")) return
               message.author.send("Note: the person that you just added a point to got muted `indefinitely` AND his points reset, this means addpoint doesn't make sense here.")
             }
         }
-     lmao(); }
+     lmao(); }*/
       
   }
 });
