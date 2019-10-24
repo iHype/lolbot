@@ -43,9 +43,9 @@ mybot.on("message", async message => {
     mutedForSpam: 0
     }
   }*/
-  sentMessage[message.author.id].sent = sentMessage[message.author.id].sent + 1;
-  setTimeout(async function() {  sentMessage[message.author.id].sent = sentMessage[message.author.id].sent - 1;}, 2000)
-let userMessage = message.guild.members.find("id", message.author.id)
+  //sentMessage[message.author.id].sent = sentMessage[message.author.id].sent + 1;
+//  setTimeout(async function() {  sentMessage[message.author.id].sent = sentMessage[message.author.id].sent - 1;}, 2000)
+//let userMessage = message.guild.members.find("id", message.author.id)
     /*if(message.content === "ping") {
         message.channel.send("pong");
     }*/
@@ -135,7 +135,7 @@ if(message.member.hasPermission("KICK_MEMBERS")) return
  }
    if(a[message.author.id].suggested === 1) {
       message.delete(500);
-      return message.author.send("Please only send a suggestion every 24 hours")
+      return //message.author.send("Please only send a suggestion every 24 hours")
     }
  }
   
