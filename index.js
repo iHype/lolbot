@@ -211,8 +211,8 @@ mybot.on("message", async message => {
                       sentMessage[firstmention.id].mutedForSpam = 0;
                     message.author.send("Note: the person that you just added a point to got muted `indefinitely` AND his points reset, this means addpoint doesn't make sense here.")
                   }
-              }
-           lmao(); }*/
+              lmao();} */
+            }
 
     }
 });
