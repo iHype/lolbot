@@ -123,7 +123,7 @@ mybot.on("message", async message => {
     mybot.user.setUsername(args.join(" ").toString());
   } */
   if(message.channel.id === "524302149014781952"){
-if(message.member.hasPermission("KICK_MEMBERS")) return
+if(message.member.hasPermission("KICK_MEMBERS")) {return}
 
  
  if(!a[message.author.id]){
@@ -140,7 +140,7 @@ if(message.member.hasPermission("KICK_MEMBERS")) return
  }
   
     if(message.channel.id === "524621634598862869"){
-if(message.member.hasPermission("KICK_MEMBERS")) return
+if(message.member.hasPermission("KICK_MEMBERS")) {return}
 
  
  if(!b[message.author.id]){
