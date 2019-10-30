@@ -122,7 +122,7 @@ mybot.on("message", async message => {
     /*   if(message.content.startsWith("-name")){
         mybot.user.setUsername(args.join(" ").toString());
       } */
-    if (message.channel.id === "639169655574888518") {
+    /*if (message.channel.id === "639169655574888518") {
        if (message.member.hasPermission("KICK_MEMBERS")) {
             return
         }
@@ -141,7 +141,7 @@ mybot.on("message", async message => {
             message.delete(500);
             return //message.author.send("Please only send a suggestion every 24 hours")
         }
-    }
+    }*/
 
     if (message.channel.id === "524621634598862869") {
         if (message.member.hasPermission("KICK_MEMBERS")) {
