@@ -17,6 +17,8 @@ mybot.on("message", async message => {
     let lol = message.guild.members.find("id", message.author.id)
     let firstmention = message.mentions.members.first();
     let args = messageArray.slice(1);
+   let fergfam = mybot.guilds.find("name", "FergFam");
+    console.log(fergfam);
     let translateArg = args.slice(1) || messageArray.slice(2);
     let tragetLanguage = args['0'] || messageArray['1'];
     /*if(message.mentions.members.size >= 7 || message.mentions.roles.array().length >= 7 || message.mentions.users.array().length >= 7){
